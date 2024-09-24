@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.proto";
+
+// Service definition
+service HelloService {
+  rpc SayHello(HelloRequest) returns (HelloResponse);
+}
+service StreamingService {
+  rpc StreamHello(stream HelloRequest) returns (HelloResponse);
+}
+
+// Message format
+message HelloRequest { string name = 1; }
+
+message HelloResponse { string greeting = 1; }
